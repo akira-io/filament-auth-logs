@@ -34,9 +34,7 @@ class FilamentAuthLogsServiceProvider extends PackageServiceProvider
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('akira/filament-auth-logs');
+                    ->askToStarRepoOnGitHub('akira-io/filament-auth-logs');
             });
 
         $configFileName = $package->shortName();

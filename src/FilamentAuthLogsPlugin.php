@@ -14,7 +14,7 @@ class FilamentAuthLogsPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel->discoverResources(in: __DIR__ . '/Resources', for: 'Akira\\FilamentAuthLogs\\Resources');
     }
 
     public function boot(Panel $panel): void
