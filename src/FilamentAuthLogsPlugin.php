@@ -7,6 +7,23 @@ use Filament\Panel;
 
 class FilamentAuthLogsPlugin implements Plugin
 {
+    protected ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+
+    protected ?string $activeNavigationIcon = 'heroicon-s-clipboard-document-list';
+
+    public static function make(): static
+    {
+        return app(static::class);
+    }
+
+    public static function get(): static
+    {
+        /** @var static $plugin */
+        $plugin = filament(app(static::class)->getId());
+
+        return $plugin;
+    }
+
     public function getId(): string
     {
         return 'filament-auth-logs';
@@ -22,16 +39,27 @@ class FilamentAuthLogsPlugin implements Plugin
         //
     }
 
-    public static function make(): static
+    public function navigationIcon(string $navigationIcon): self
     {
-        return app(static::class);
+        $this->navigationIcon = $navigationIcon;
+
+        return $this;
     }
 
-    public static function get(): static
+    public function getNavigationIcon(): ?string
     {
-        /** @var static $plugin */
-        $plugin = filament(app(static::class)->getId());
+        return $this->navigationIcon;
+    }
 
-        return $plugin;
+    public function activeNavigationIcon(string $activeNavigationIcon): self
+    {
+        $this->activeNavigationIcon = $activeNavigationIcon;
+
+        return $this;
+    }
+
+    public function getActiveNavigationIcon(): ?string
+    {
+        return $this->activeNavigationIcon;
     }
 }

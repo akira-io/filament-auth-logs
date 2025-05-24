@@ -6,9 +6,9 @@ use Illuminate\Console\Command;
 
 class FilamentAuthLogsCommand extends Command
 {
-    public $signature = 'filament-auth-logs';
+    public $signature = 'filament-auth-logs:install';
 
-    public $description = 'My command';
+    public $description = 'Install the Filament Auth Logs package';
 
     public function handle(): int
     {

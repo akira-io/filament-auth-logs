@@ -2,6 +2,8 @@
 
 namespace Akira\FilamentAuthLogs;
 
+use Akira\FilamentAuthLogs\Commands\FilamentAuthLogsCommand;
+use Akira\FilamentAuthLogs\Testing\TestsFilamentAuthLogs;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
@@ -13,8 +15,6 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Akira\FilamentAuthLogs\Commands\FilamentAuthLogsCommand;
-use Akira\FilamentAuthLogs\Testing\TestsFilamentAuthLogs;
 
 class FilamentAuthLogsServiceProvider extends PackageServiceProvider
 {
@@ -31,7 +31,7 @@ class FilamentAuthLogsServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             ->hasCommands($this->getCommands())
-            ->hasInstallCommand(function (InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command): void {
                 $command
                     ->publishConfigFile()
                     ->askToStarRepoOnGitHub('akira-io/filament-auth-logs');

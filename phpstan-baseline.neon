@@ -1,0 +1,13 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Out of 25 possible return types, only 24 \- 96\.0 %% actually have it\. Add more return types to get over 99 %%$#'
+			identifier: typeCoverage.returnTypeCoverage
+			count: 1
+			path: src/Facades/FilamentAuthLogs.php
+
+		-
+			message: '#^Out of 8 possible param types, only 7 \- 87\.5 %% actually have it\. Add more param types to get over 99 %%$#'
+			identifier: typeCoverage.paramTypeCoverage
+			count: 1
+			path: src/Resources/AuthenticationLogsResource/AuthenticationLogsResource.php
